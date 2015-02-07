@@ -15,14 +15,15 @@ body {
 }
 
 a {
-	color: #36b6dd;
+	color: #000000;
 	text-decoration: none;
+	font-weight: 600;
 }
 
 p{	font-weight: 400;
 	font-size: 1em;
 	text-align:justify;
-	padding-top:60px;
+	
 	line-height:1.4em;
 	color: #565656
 	}
@@ -30,7 +31,7 @@ p{	font-weight: 400;
 a:hover,
 a:focus {
 	outline: none;
-	color: #fff !important;
+	color: #ff0000 !important;
 }
 
 h1, h2, h3{font-weight:200;}
@@ -110,6 +111,7 @@ h1, h2, h3{font-weight:200;}
 .intro__description {
 	margin: 0 auto 0 1em;
 	line-height: 1.2;
+	color:white;
 }
 
 /* Trigger button with SVG */
