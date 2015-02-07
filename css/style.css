@@ -9,8 +9,8 @@ body {
 	background: #fff;
 	color: #000;
 	font-weight: 400;
-	font-size: 1.1em;
-	font-family: "Lekton", Helvetica, monospace;
+	font-size: 1em;
+	font-family: "Lekton",Helvetica, monospace;
 	
 }
 
@@ -19,10 +19,12 @@ a {
 	text-decoration: none;
 }
 
-p{	font-weight: 300;
+p{	font-weight: 400;
 	font-size: 1em;
 	text-align:justify;
 	padding-top:60px;
+	line-height:1.4em;
+	color: #565656
 	}
 
 a:hover,
@@ -166,8 +168,8 @@ h1, h2, h3{font-weight:200;}
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
-margin:0 0 -130px;
-	padding: 250px 5px 0;
+margin:0 0 -180px;
+	padding: 250px 30% 0 30%;
 
 }
 
@@ -177,7 +179,7 @@ margin:0 0 -130px;
 	display: flex;
 	-webkit-flex-wrap: wrap;
 	flex-wrap: wrap;
-	padding: 25px 20% 0 20%;
+	padding: 25px 0 0 0;
 	margin:0 auto;}
 
 	.inner2{	position: relative;
@@ -265,6 +267,18 @@ margin:0 0 -130px;
 		flex: 1 0 33.333%;
 		height: 30vw;
 	}
+	
+.items-wrap {
+	position: relative;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+margin:0 0 -130px;
+	padding: 250px 10% 0 10%;
+
+}
+	
 }
 
 @media screen and (max-width: 1000px) {
