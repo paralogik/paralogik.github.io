@@ -126,7 +126,7 @@ h1, h2, h3{font-weight:200;}
 	height: 40px;
 	outline: none;
 	border: none;
-	background: none;
+	background: #000;
 }
 
 /* Hide the text */
