@@ -8,7 +8,7 @@
  * @see     https://github.com/miguel-perez/jquery.smoothState.js
  * 
  */
-;(function ( $, window, document, undefined ) {
+;(function ( $, window, document, iframe, undefined ) {
     "use strict";
 
     var
