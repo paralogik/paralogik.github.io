@@ -28,7 +28,7 @@
             prefetch : false,
             
             /** A selecor that deinfes with links should be ignored by smoothState */
-            blacklist : ".no-smoothstate, iframe",
+            blacklist : ".no-smoothstate, [iframe]",
             
             /** If set to true, smoothState will log useful debug information instead of aborting */
             development : false,
