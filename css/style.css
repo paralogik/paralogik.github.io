@@ -11,7 +11,7 @@ body {
 	font-weight: 400;
 	font-size: 1em;
 	font-family: "Lekton",Helvetica, monospace;
-	
+
 }
 
 a {
@@ -23,7 +23,7 @@ a {
 p{	font-weight: 400;
 	font-size: 1em;
 	text-align:justify;
-	
+
 	line-height:1.4em;
 	color: #565656
 	}
@@ -63,7 +63,7 @@ h1, h2, h3{font-weight:200;}
 	min-height: 120%;
 	width: auto;
 	height: auto;
-	opacity: 0.16;
+	opacity: 1;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	-webkit-transition: -webkit-transform 0.6s, opacity 0.6s;
@@ -94,7 +94,7 @@ h1, h2, h3{font-weight:200;}
 	font-family: "Megrim", serif;
 	line-height: 1;
 	color:rgba(255,255,255,0.64);
-   
+
 }
 
 
@@ -269,7 +269,7 @@ margin:0 0 -180px;
 		flex: 1 0 33.333%;
 		height: 30vw;
 	}
-	
+
 .items-wrap {
 	position: relative;
 	display: -webkit-flex;
@@ -280,7 +280,7 @@ margin:0 0 -130px;
 	padding: 250px 10% 0 10%;
 
 }
-	
+
 }
 
 @media screen and (max-width: 1000px) {
