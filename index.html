@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
-			
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -25,7 +25,7 @@
 					<h1 class="intro__title">PARALOGIK</h1>
 
 					<div class="intro__subtitle">
-						
+
 						<div class="intro__description">
 
 	<!--	<p>  <a href="http://soundcloud.com/paralogik">Soundcloud</a>	</p>	-->			</div>
@@ -54,7 +54,7 @@
 				<div class="inner">
 
 
-					<p>Starting with the Greek word Paralogik which is a paraphrase of the Greek word "παράλογο", two humans and musicians Gene Broumidis and Nick Levantis are  experimenting and trying to express through their music many unresolved social and esoteric concerns in a world where egoism, greediness, hypocrisy and irrationality has replaced most of the times anything reasonable. Their industrial and dark sound travels through ethereal melodic light which eventually leads to the truth and  real hope..</p>
+					<p>Starting with the Greek word Paralogik which is a paraphrase of the Greek word "παράλογο", two humans and musicians Gene B and Nick L are  experimenting and trying to express through their music many unresolved social and esoteric concerns in a world where egoism, greediness, hypocrisy and irrationality has replaced most of the times anything reasonable. Their industrial and dark sound travels through ethereal melodic light which eventually leads to the truth and  real hope..</p>
 
 </div>
 
@@ -72,7 +72,7 @@
 
 </a>
 
-				
+
 			</section>
 				<section class="items-wrap">
 
@@ -86,7 +86,7 @@
 <ul>
 <li><a href="mailto:paralogikband@gmail.com">drop a line</a></li>						</section>
 
-		
+
 
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
@@ -139,7 +139,7 @@
 
 $(function() {
            //DUST!!
-			
+
 		var bg = document.getElementById(".intro").getContext('2d'),
 			dusts = [],
 			deadDust = [],
@@ -160,11 +160,11 @@ $(function() {
 			n, //Particle position
 			vx,
 			vy;
-			
+
 		function Dust(){
-		
+
 			this.init = function(atTop){
-											
+
 				this.x = Math.floor(Math.random() * viewWidth);
 				this.y = atTop ? 0 : Math.floor(Math.random() * viewHeight);
 				this.vx = 0;
@@ -177,9 +177,9 @@ $(function() {
 				this.g = (Math.random() * .1 + .85) * 255;
 				this.b = (Math.random() * .2 + .7) * 255;
 				this.active = true;
-				
+
 				var rand = Math.random();
-				
+
 				if(rand > .9) {
 					this.glow = 2;
 				} else if (rand > .7) {
@@ -188,163 +188,163 @@ $(function() {
 					this.glow = 0;
 				}
 			}
-			
+
 			this.init();
 		}
-		
+
 		function makeDust(){
 			dusts = [];
 			var d;
 			for(i = 0; i < numDust; i++){
-				
+
 				dusts.push(new Dust());
 			}
 		}
-		
+
 		makeDust();
-			
-		
+
+
 		function fillPixel(data, n, r, g, b, a){
 			data[n] += r,
 			data[n+1] += g,
 			data[n+2] += b,
 			data[n+3] += a || 255;
 		}
-				
+
 		function dustStep(){
-		
+
 		    for ( i = 0; i < numDust; ++i) {
-		      
+
 		      p = dusts[i];
-		      
+
 			  var q = (~~((p.x + dustLeft) / WIND_SPACING) * XWINDS) + (~~(p.y / WIND_SPACING));
-			  
+
 			  if(q<0) q = 0;
 			  if(q>NUMWINDS-1) q = NUMWINDS-1;
-		      
+
 		      var w = winds[q];
-		      
+
 		      p.vx *= .9;
 		      p.vy *= .9;
-		      
+
 				  p.vx += w.vx * 8;
 				  p.vy += w.vy * 8;
-			  
+
 		      p.x += p.vx;
 		      p.y += p.vy + p.speed;
-		      		      
+
 		      if(p.y > viewHeight){
 				 p.y = p.vx = p.vy = 0;
-				 p.active = true;		      
+				 p.active = true;
 				 }
-		      
+
 		      if (p.x < 0 || p.x > viewWidth) p.init(true);
-			  
+
 			  if(p.col > p.maxcol || p.col < MIN_COL) p.dir = -p.dir;
-			  
+
 			  p.col += p.dir;
-			  
+
 			  if(p.y > 600) continue;
-			  
+
 			  for(j = 0; j < numLetters; ++j){
-				  
+
 				  l = letters[j];
-				  
+
 				  if(Matter.Bounds.contains(l.bounds, {x: p.x + dustLeft, y: p.y}) && Matter.Vertices.contains(l.vertices, {x: p.x + dustLeft, y: p.y})){
 					  p.active = false;
 				  }
-				  
+
 			  }
-			  
+
 		    }
 		}
-		
+
 		function dustCollide(){
-				
+
 		  for(i = 0; i < numDust; ++i){
-			  
+
 			  p = dusts[i];
-			  
+
 			  if(p.y > 600) continue;
-			  
+
 			  for(j = 0; j < numLetters; ++j){
-				  
+
 				  l = letters[j];
-				  
+
 				  if(Matter.Bounds.contains(l.bounds, {x: p.x + dustLeft, y: p.y}) && Matter.Vertices.contains(l.vertices, {x: p.x + dustLeft, y: p.y})){
 					  p.active = false;
 				  }
-				  
+
 			  }
-			  
+
 		  }
-		  		  
+
 		}
-		
+
 		function prepDust(){
 			wind();
 			dustStep();
 			//dustCollide();
 		}
-		
+
 		function dustDraw(){
-		
+
 		    b = ( a = bg.createImageData( viewWidth, viewHeight ) ).data;
-		
+
 		    for ( i = 0; i < numDust; ++i ) {
-		
+
 		      p = dusts[i];
-		      
+
 		      if(!p.active) continue;
-		      
+
 		      d = 1 - ((Math.abs(p.x + dustLeft - (viewWidth / 2)) / (viewWidth / 2)) * 0.7);
-		      
+
 		      //d *= (((viewHeight * 1.75) - p.y) / viewHeight);
-		      
+
 		      var alpha = p.col * d;
-		      
+
 		      n = ( ~~p.x + ( ~~p.y * viewWidth ) ) * 4;
-		      		      
+
 		      fillPixel(b, n, p.r, p.g, p.b, alpha);
-		      
+
 		      if(p.glow){
-		      			      
+
 			      alpha *= 0.5;
-			      
+
 				  fillPixel(b, n - 4, p.r, p.g * d, p.b * d, alpha);
 				  fillPixel(b, n + 4, p.r * d, p.g, p.b, alpha);
 				  fillPixel(b, n - viewWidthBytes, p.r, p.g, p.b, alpha);
 				  fillPixel(b, n + viewWidthBytes, p.r, p.g, p.b, alpha);
-				  
+
 				  if(p.glow === 2){
-					  
+
 				      alpha *= 0.8;
-				      
+
 					  fillPixel(b, n - viewWidthBytes - 4, p.r, p.g * d, p.b * d, alpha);
 					  fillPixel(b, n - viewWidthBytes + 4, p.r * d, p.g, p.b, alpha);
 					  fillPixel(b, n + viewWidthBytes - 4, p.r, p.g * d, p.b * d, alpha);
 					  fillPixel(b, n + viewWidthBytes + 4, p.r * d, p.g, p.b, alpha);
-					  
+
 				  }
-				  
+
 		      }
 
 		    }
-		
+
 		    bg.putImageData( a, dustLeft, 0 );
 		}
-		
+
 		/*
-		
+
 		setInterval(function(){
 			var d = deadDust.pop();
 			if(d){
 				d.active = true;
 			}
 		}, 40)
-		
+
 		*/
-		
+
 		var winds = [],
 			WIND_SPACING = 30,
 			XWINDS = Math.ceil(WIDTH / WIND_SPACING),
@@ -353,7 +353,7 @@ $(function() {
 			neighbs = [],
 			avgX,
 			avgY;
-			
+
 		for (i = 0; i < NUMWINDS; i++) {
 			winds.push({
 				y: i % XWINDS * WIND_SPACING,
@@ -365,26 +365,26 @@ $(function() {
 				ny: Math.random()
 			});
 		}
-		
+
 		var noiseCount = 0;
 
 		var dotCount = 0;
-		
+
 		function windPush(w1,w2){
 			dotCount++;
 			var posVector = Matter.Vector.normalise({x: w1.x - w2.x, y: w1.y - w2.y});
-			
+
 			var dot = Matter.Vector.dot(posVector, Matter.Vector.normalise({x: w2.vx, y: w2.vy}));
-			
+
 			dot = Math.max(0, dot);
-			
+
 			return {x: w2.vx * dot, y: w2.vy * dot};
-			
-			
+
+
 		}
-		
+
 		function wind(){
-		
+
 			if(lastMx){
 				var mDeltaX = mx - lastMx;
 				var mDeltaY = my - lastMy;
@@ -392,35 +392,35 @@ $(function() {
 				var mDeltaX = 0;
 				var mDeltaY = 0;
 			}
-			
+
 			if(mWind >= 0 && mWind < NUMWINDS - 1){
 				winds[mWind].vx += mDeltaX * .02;
 				winds[mWind].vy += mDeltaY * .02;
 			}
-			
+
 			lastMx = mx;
 			lastMy = my;
-			
+
 			for(i = 0; i < NUMWINDS; i++){
-			
+
 				p = winds[i];
-								
+
 				for(j = 0; j < numLetters; ++j){
-				
+
 					l = letters[j];
-									
+
 					if(Matter.Bounds.contains(l.bounds, {x: p.x + dustLeft, y: p.y}) && Matter.Vertices.contains(l.vertices, {x: p.x + dustLeft, y: p.y})){
 						p.vx += (l.position.x - l.positionPrev.x) * .01;
 						p.vy += (l.position.y - l.positionPrev.y) * .01;
 					}
 				}
-				
+
 				neighbs = [];
-				
+
 				avgX = avgY = 0;
-				
+
 				//neighbs.push(p);
-				
+
 				if(winds[i+1]) neighbs.push(winds[i+1]);
 				if(winds[i-1]) neighbs.push(winds[i-1]);
 				if(winds[i+XWINDS]) neighbs.push(winds[i+XWINDS]);
@@ -429,36 +429,36 @@ $(function() {
 				if(winds[i+XWINDS - 1]) neighbs.push(winds[i+XWINDS - 1]);
 				if(winds[i-XWINDS + 1]) neighbs.push(winds[i-XWINDS + 1]);
 				if(winds[i-XWINDS - 1]) neighbs.push(winds[i-XWINDS - 1]);
-								
+
 				for(j = 0; j < neighbs.length; j++){
-				
+
 					var push = windPush(p, neighbs[j]);
-										
+
 					avgX += push.x;
 					avgY += push.y;
-					
+
 					//avgX += neighbs[j].vx;
 					//avgY += neighbs[j].vy;
 				}
-				
+
 				//avgX /= 6;
 				//avgY /= 6;
-				
+
 				p.vx += avgX;
 				p.vy += avgY;
-				
+
 				p.vx *= .28;
 				p.vy *= .28;
-				
+
 				if((p.nx += 0.01) > 1) p.nx -= 1;
 				if((p.ny += 0.01) > 1) p.ny -= 1;
-				
+
 				nx = noise.perlin2(p.nx, 0.5) * .02;
 				ny = noise.perlin2(p.ny, 0.5) * .02;
 
 				p.vx += nx;
 				p.vy += ny;
-				
+
 				if(showWind){
 					bg.beginPath();
 					bg.moveTo(p.x, p.y);
@@ -467,39 +467,39 @@ $(function() {
 					bg.stroke();
 				}
 			}
-			
+
 			console.timeEnd('dust');
-					
+
 		}
-		
+
 		togs = [prepDust, dustDraw];
-		
+
 		var bod = $('intro');
-		
+
 		var perfCounter = 0;
-			
+
 		Events.on(engine, 'tick', function(){
-		
+
 			mx = engine.input.mouse.position.x;
 			my = engine.input.mouse.position.y;
-			
+
 			var pointed = false;
-		
+
 			mWind = (~~((mx + dustLeft) / WIND_SPACING) * XWINDS) + (~~(my / WIND_SPACING));
-		
+
 			for(var i = 0; i < numLetters; i++){
-			
+
 				var l = letters[i];
-				
+
 				if(Matter.Bounds.contains(l.bounds, engine.input.mouse.position)
 					&& Matter.Vertices.contains(l.vertices, engine.input.mouse.position)){
 					pointed = true;
 				}
-								
+
 				if (i < 4) Body.applyForce(letters[i], letters[i].position, {x: (Math.random() * windStrength) - (windStrength/2), y: (Math.random() * windStrength) - (windStrength/2)});
-				
+
 			}
-			
+
 			if(mouseConstraint.constraint.bodyB){
 				bod.addClass('grabbing');
 			} else if(pointed) {
@@ -507,29 +507,29 @@ $(function() {
 			} else {
 				bod.removeClass('grab grabbing');
 			}
-			
+
 			if(++tog === 2) tog = 0;
-			
-			togs[tog]();			
-			
+
+			togs[tog]();
+
 		});
-		
+
 		Events.on(engine.input.mouse, 'mouseup', function(e){
 			console.log(e);
 		});
 
-		
+
 		engine.render.options.background = 'transparent';
-		
+
 		// run the engine
-		Engine.run(engine);		
-		
-		
+		Engine.run(engine);
+
+
 		$('.tagline').addClass('active');
-		
+
 		</script>
-        
-       
-		
+
+
+
 	</body>
 </html>
