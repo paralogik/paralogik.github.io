@@ -212,9 +212,12 @@ margin:0 0 -180px;
 }
 
 .item {
+	-webkit-flex: 1 0 50%;
+		flex: 1 0 50%;
+		height: 45vw;
 	position: relative;
-	-webkit-flex: 1 0 5%;
-	flex: 1 0 25%;
+
+
 	overflow: hidden;
 	height: 27vw;
 	width: 27vw;
