@@ -216,7 +216,7 @@ margin:0 0 -180px;
 	-webkit-flex: 1 0 5%;
 	flex: 1 0 25%;
 	overflow: hidden;
-	
+	height: 27vw;
 	outline: none;
 	border:none;;
 	border-width: 0 5px 10px;
