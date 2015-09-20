@@ -4,7 +4,7 @@ var   canvas = document.querySelector('canvas'),
 patriclesNum = 67,
            w = 1500,
            h = 1500,
-      colors = ['rgba(32,32,32,0.03)','rgba(0, 0, 0, 0.07)','rgba(240,137,117,0.03)'];
+      colors = ['rgba(32,32,32,0.02)','rgba(0, 0, 0, 0.01)','rgba(240,137,117,0.02)'];
  
 canvas.width = 1500;
 canvas.height = 1280;
